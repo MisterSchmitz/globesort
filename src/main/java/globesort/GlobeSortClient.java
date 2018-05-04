@@ -51,7 +51,8 @@ public class GlobeSortClient {
         begtime = System.currentTimeMillis();
 		IntArray response = serverStub.sortIntegers(request);
 		endtime = System.currentTimeMillis();
-        System.out.println("Sorted array. "+(endtime-begtime)+"ms");
+	System.out.println("Sort complete. "+response.getTime()+"ms");
+        System.out.println("Round-trip time: "+(endtime-begtime)+"ms");
     }
 
     public void shutdown() throws InterruptedException {
