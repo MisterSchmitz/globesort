@@ -92,12 +92,14 @@ public class GlobeSortServer {
 			begtime = System.currentTimeMillis();
             Arrays.sort(values);
 			endtime = System.currentTimeMillis();
+                        int duration = (int) (endtime-begtime);
 			System.out.println("Sorted array. "+(endtime-begtime)+"ms");
             
 			IntArray.Builder responseBuilder = IntArray.newBuilder();
             for(Integer val : values) {
                 responseBuilder.addValues(val);
             }
+            responseBuilder.setTime(duration);
             IntArray response = responseBuilder.build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
